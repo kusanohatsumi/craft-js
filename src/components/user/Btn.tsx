@@ -1,15 +1,34 @@
+import { useNode } from "@craftjs/core";
 import { Button } from "../ui/button";
+import Container from "./container";
 
 export default function Btn({
-  text,
+  size,
+  variant,
+  color,
   children,
 }: {
-  text: string;
+  size: "default" | "sm" | "lg";
+  variant: "default" | "secondary" | "link" | "outline";
+  color: string;
   children: React.ReactNode;
 }) {
+  const {
+    connectors: { connect, drag },
+    actions: { setProp },
+  } = useNode();
+
   return (
     <>
-      <Button>{children}</Button>
+      <Button
+        size={size}
+        variant={variant}
+        color={color}
+        className="inline-block"
+        ref={(ref: any) => connect(drag(ref))}
+      >
+        {children}
+      </Button>
     </>
   );
 }
