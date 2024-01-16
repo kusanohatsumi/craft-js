@@ -7,10 +7,12 @@ import Card from "@/components/user/Card";
 import { Cardtext, Cardbtn } from "@/components/user/Card";
 
 import Container from "@/components/user/container";
+import SettingPanel from "@/components/SettingPanel";
 export default function Home() {
   return (
     <>
       <Editor resolver={{ Btn, Card, Container, Text, Cardtext, Cardbtn }}>
+        <SettingPanel />
         <Frame>
           <div style={{ background: "#F4F4F4", padding: "16px" }}>
             <Element is={Container} background="#E2E8F0" padding={8} canvas>
